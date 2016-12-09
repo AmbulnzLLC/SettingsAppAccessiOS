@@ -81,23 +81,23 @@ public enum SettingsAppLocation : String {
 
     /// Return a human readable string
     public var humanReadableString : String {
-        let settingsAppAccessBundle = NSBundle(forClass: SettingsAppAccess.self)
+        let settingsAppAccessBundle = Bundle(for: SettingsAppAccess.self)
 
         switch self {
         case .Settings:
-            return NSLocalizedString("Settings menu title", value: "Settings", bundle: settingsAppAccessBundle, comment: "main Settings menu title")
+            return NSLocalizedString("Settings menu title", bundle: settingsAppAccessBundle, value: "Settings", comment: "main Settings menu title")
 
         case .About:
-            return NSLocalizedString("About menu title", value: "About", bundle: settingsAppAccessBundle, comment: "")
+            return NSLocalizedString("About menu title", bundle: settingsAppAccessBundle, value: "About", comment: "")
 
         case .Accessibility:
-            return NSLocalizedString("Accessibility menu title", value: "Accessibility", bundle: settingsAppAccessBundle, comment: "")
+            return NSLocalizedString("Accessibility menu title", bundle: settingsAppAccessBundle, value: "Accessibility", comment: "")
 
         case .AutoLock:
-            return NSLocalizedString("Auto-Lock menu title", value: "Auto-Lock", bundle: settingsAppAccessBundle, comment: "")
+            return NSLocalizedString("Auto-Lock menu title", bundle: settingsAppAccessBundle, value: "Auto-Lock", comment: "")
 
         case .Bluetooth:
-            return NSLocalizedString("Bluetooth menu title", value: "Bluetooth", bundle: settingsAppAccessBundle, comment: "")
+            return NSLocalizedString("Bluetooth menu title", bundle: settingsAppAccessBundle, value: "Bluetooth", comment: "")
 
         case .ConfigurationProfiles:
             return NSLocalizedString("Configuration Profiles menu title", bundle: settingsAppAccessBundle, value: "Configuration Profiles", comment: "")
@@ -182,7 +182,7 @@ public enum SettingsAppLocation : String {
         }
     }
 
-    private func unableToCreateURLError() -> NSError {
+    fileprivate func unableToCreateURLError() -> NSError {
         let descriptionFormat = NSLocalizedString("Unable to create NSURL for Settings App Location error description", comment: "")
         let description = String(format: descriptionFormat, self.rawValue)
 
@@ -196,8 +196,8 @@ public enum SettingsAppLocation : String {
 
      - returns: A new NSURL if one can be created with our path, otherwise nil
      */
-    public func URL() -> NSURL? {
-        return NSURL(string: self.rawValue)
+    public func URL() -> Foundation.URL? {
+        return Foundation.URL(string: self.rawValue)
     }
 
     /**
@@ -207,9 +207,9 @@ public enum SettingsAppLocation : String {
 
      - returns: A new NURL with our path
      */
-    public func URL() throws -> NSURL {
+    public func URL() throws -> Foundation.URL {
         
-        guard let url = NSURL(string: self.rawValue) else {
+        guard let url = Foundation.URL(string: self.rawValue) else {
             throw self.unableToCreateURLError()
         }
         

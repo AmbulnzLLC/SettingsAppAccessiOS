@@ -24,7 +24,7 @@ extension UIApplication {
         Just like UIApplication's openURL(...) a return value of true does not indicate that we've successfully reached the expected path within iOS' Settings App, if the path is invalid we will open the iOS Settings App to the last open location and return true.
 
      */
-    public func settingsAppAccess_openLocation(location : SettingsAppLocation) throws -> Bool {
-        return self.openURL(try location.URL())
+    public func settingsAppAccess_openLocation(_ location : SettingsAppLocation) throws -> Bool {
+        return self.openURL(try location.URL() as URL)
     }
 }

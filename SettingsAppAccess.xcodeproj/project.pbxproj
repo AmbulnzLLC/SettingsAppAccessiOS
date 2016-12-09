@@ -300,6 +300,7 @@
 				TargetAttributes = {
 					3C4E070D1CC82E3800FDC312 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0810;
 					};
 					3C4E07201CC8376400FDC312 = {
 						CreatedOnToolsVersion = 7.3;
@@ -576,6 +577,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -594,6 +596,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.adorkable.SettingsAppAccess;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
